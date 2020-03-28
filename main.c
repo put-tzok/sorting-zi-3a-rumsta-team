@@ -4,6 +4,7 @@
 #include <time.h>
 #include <ctime>
 
+
 using namespace std;
 
 unsigned int ns[] = { 100, 1000, 10000, 15000, 20000, 22000, 25000 };
