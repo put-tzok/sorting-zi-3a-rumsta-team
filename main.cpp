@@ -5,8 +5,8 @@
 
 using namespace std;
 
-long n = 15000; //ilo�� element�w
-bool wyswietlaj = 0; //w��cz wy�wietlanie
+long n = 15000; //ilość elementów
+bool wyswietlaj = 0; //włącz wyświetlanie
 
 int generator();
 int algorytm();
@@ -69,7 +69,7 @@ int main(int argc, char** argv) {
 						wyswietl(tab);
 						cout<<"Czas wykonania: "<<roznica<<endl;
 			            break;
-			       	case 3:		//Quick Sort (Ostatnia warto�� w tablicy jest elementem rozdzielaj�cym)
+			       	case 3:		//Quick Sort (Ostatnia wartość w tablicy jest elementem rozdzielającym)
 			       		wyswietl(tab);
 	       				start = clock();
 						quickSort(tab, 0, n);
@@ -78,7 +78,7 @@ int main(int argc, char** argv) {
 						wyswietl(tab);
 						cout<<"Czas wykonania: "<<roznica<<endl;
 			            break;	
-			       	case 4:     //Quick Sort (Losowa warto�� z tablicy jest elementem rozdzielaj�cym)    
+			       	case 4:     //Quick Sort (Losowa wartość z tablicy jest elementem rozdzielającym)    
 					   	wyswietl(tab);
 	       				start = clock();
 						quickSort_r(tab, 0, n);
@@ -123,7 +123,7 @@ int main(int argc, char** argv) {
 						wyswietl(tab);
 						cout<<"Czas wykonania: "<<roznica<<endl;
 			            break;
-			       	case 3:		//Quick Sort (Ostatnia warto�� w tablicy jest elementem rozdzielaj�cym)
+			       	case 3:		//Quick Sort (Ostatnia wartość w tablicy jest elementem rozdzielającym)
 			       		wyswietl(tab);
 	       				start = clock();
 						quickSort(tab, 0, n);
@@ -132,7 +132,7 @@ int main(int argc, char** argv) {
 						wyswietl(tab);
 						cout<<"Czas wykonania: "<<roznica<<endl;
 			            break;	
-			       	case 4:     //Quick Sort (Losowa warto�� z tablicy jest elementem rozdzielaj�cym)    
+			       	case 4:     //Quick Sort (Losowa wartość z tablicy jest elementem rozdzielającym)    
 					   	wyswietl(tab);
 	       				start = clock();
 						quickSort_r(tab, 0, n);
@@ -177,7 +177,7 @@ int main(int argc, char** argv) {
 						wyswietl(tab);
 						cout<<"Czas wykonania: "<<roznica<<endl;
 			            break;
-			       	case 3:		//Quick Sort (Ostatnia warto�� w tablicy jest elementem rozdzielaj�cym)
+			       	case 3:		//Quick Sort (Ostatnia wartość w tablicy jest elementem rozdzielającym)
 			       		wyswietl(tab);
 	       				start = clock();
 						quickSort(tab, 0, n);
@@ -186,7 +186,7 @@ int main(int argc, char** argv) {
 						wyswietl(tab);
 						cout<<"Czas wykonania: "<<roznica<<endl;
 			            break;	
-			       	case 4:     //Quick Sort (Losowa warto�� z tablicy jest elementem rozdzielaj�cym)    
+			       	case 4:     //Quick Sort (Losowa wartość z tablicy jest elementem rozdzielającym)    
 					   	wyswietl(tab);
 	       				start = clock();
 						quickSort_r(tab, 0, n);
@@ -231,7 +231,7 @@ int main(int argc, char** argv) {
 						wyswietl(tab);
 						cout<<"Czas wykonania: "<<roznica<<endl;
 			            break;
-			       	case 3:		//Quick Sort (Ostatnia warto�� w tablicy jest elementem rozdzielaj�cym)
+			       	case 3:		//Quick Sort (Ostatnia wartość w tablicy jest elementem rozdzielającym)
 			       		wyswietl(tab);
 	       				start = clock();
 						quickSort(tab, 0, n);
@@ -240,7 +240,7 @@ int main(int argc, char** argv) {
 						wyswietl(tab);
 						cout<<"Czas wykonania: "<<roznica<<endl;
 			            break;	
-			       	case 4:     //Quick Sort (Losowa warto�� z tablicy jest elementem rozdzielaj�cym)    
+			       	case 4:     //Quick Sort (Losowa wartość z tablicy jest elementem rozdzielającym)    
 					   	wyswietl(tab);
 	       				start = clock();
 						quickSort_r(tab, 0, n);
@@ -366,17 +366,16 @@ void swap(int *xp, int *yp)
 void selectionSort(int arr[], int n)  
 {  
     int i, j, min_idx;  
-  
-    // One by one move boundary of unsorted subarray  
+	//przesuwanie granicy nieposortowanej części tablicy
     for (i = 0; i < n-1; i++)  
     {  
-        // Find the minimum element in unsorted array  
+        // Znajdź najmniejszy element w nieposortowanej części
         min_idx = i;  
         for (j = i+1; j < n; j++)  
         if (arr[j] < arr[min_idx])  
             min_idx = j;  
   
-        // Swap the found minimum element with the first element  
+        // Podmień minimum z pierwszym elementem
         swap(&arr[min_idx], &arr[i]);  
     }  
 }
@@ -387,10 +386,7 @@ void insertionSort(int arr[], int n)
     {  
         key = arr[i];  
         j = i - 1;  
-  
-        /* Move elements of arr[0..i-1], that are  
-        greater than key, to one position ahead  
-        of their current position */
+	//przenieś elementy 0 do i-1, większe od klucza, na pozycję o jeden dalej
         while (j >= 0 && arr[j] > key) 
         {  
             arr[j + 1] = arr[j];  
@@ -399,23 +395,18 @@ void insertionSort(int arr[], int n)
         arr[j + 1] = key;  
     }  
 }
-/* This function takes last element as pivot, places 
-  the pivot element at its correct position in sorted 
-  array, and places all smaller (smaller than pivot) 
-  to left of pivot and all greater elements to right 
-  of pivot */
+//wybieramy ostatni element jako pivot, przemieszczamy mniejsze elementy na jego lewą stronę, na prawą większe
 int partition(int arr[], int low, int high) 
 { 
-    int pivot = arr[high]; // pivot 
-    int i = (low - 1); // Index of smaller element 
+    int pivot = arr[high]; 	//pivot 
+    int i = (low - 1); 		//indeks mniejszych elementów
   
     for (int j = low; j <= high - 1; j++) { 
   
-        // If current element is smaller than or 
-        // equal to pivot 
+        // Jeśli element jest mnieszy lub równy 
         if (arr[j] <= pivot) { 
   
-            i++; // increment index of smaller element 
+            i++; // zwiększmy indeks mniejszego elementu
             swap(arr[i], arr[j]); 
         } 
     } 
@@ -423,91 +414,75 @@ int partition(int arr[], int low, int high)
     return (i + 1); 
 } 
   
-// Generates Random Pivot, swaps pivot with 
-// end element and calls the partition function 
+//Generuje losowy pivot
 int partition_r(int arr[], int low, int high) 
 { 
-    // Generate a random number in between 
-    // low .. high 
+    // liczba losowa między low i high
     srand(time(NULL)); 
     int random = low + rand() % (high - low); 
   
-    // Swap A[random] with A[high] 
+    // Podmienia A[random] z A[high] 
     swap(arr[random], arr[high]); 
   
     return partition(arr, low, high); 
 } 
-  
-/* The main function that implements QuickSort 
-arr[] --> Array to be sorted, 
-low --> Starting index, 
-high --> Ending index */
-void quickSort_r(int arr[], int low, int high) 
+//QS random
+void quickSort_r(int arr[], int low, int high) //tablica do sortowania, indeks początkowy, indesk końcowy
 { 
     if (low < high) { 
-  
-        /* pi is partitioning index, arr[p] is now 
-        at right place */
         int pi = partition_r(arr, low, high); 
-  
-        // Separately sort elements before 
-        // partition and after partition 
+        // oddzielnie sortujemy przed i po partition
         quickSort(arr, low, pi - 1); 
         quickSort(arr, pi + 1, high); 
     } 
 } 
+//QS
 void quickSort(int arr[], int low, int high) 
 { 
     if (low < high) { 
-  
-        /* pi is partitioning index, arr[p] is now 
-        at right place */
         int pi = partition(arr, low, high); 
-  
-        // Separately sort elements before 
-        // partition and after partition 
+	// oddzielnie sortujemy przed i po partition
         quickSort(arr, low, pi - 1); 
         quickSort(arr, pi + 1, high); 
     } 
 } 
 void heapify(int arr[], int n, int i) 
 { 
-    int largest = i; // Initialize largest as root 
-    int l = 2*i + 1; // left = 2*i + 1 
-    int r = 2*i + 2; // right = 2*i + 2 
+    int largest = i; // ustawiamy największy element
+    int l = 2*i + 1; // lewy = 2*i + 1 
+    int r = 2*i + 2; // prawy = 2*i + 2 
   
-    // If left child is larger than root 
+    //jeśli lewy jest większy od korzenia
     if (l < n && arr[l] > arr[largest]) 
         largest = l; 
-  
-    // If right child is larger than largest so far 
+	
+    //jeśli prawy jest większy od największego
     if (r < n && arr[r] > arr[largest]) 
         largest = r; 
   
-    // If largest is not root 
+    //jeśli największy nie jest korzeniem
     if (largest != i) 
     { 
         swap(arr[i], arr[largest]); 
   
-        // Recursively heapify the affected sub-tree 
+        // rekurencyjnie przejdź przez poddrzewa
         heapify(arr, n, largest); 
     } 
 } 
   
-// main function to do heap sort 
+
 void heapSort(int arr[], int n) 
 { 
-    // Build heap (rearrange array) 
+    // zbuduj kopiec (przeorganizuj tablicę) 
     for (int i = n / 2 - 1; i >= 0; i--) 
         heapify(arr, n, i); 
   
-    // One by one extract an element from heap 
+    // jeden po drugim wyciągaj elementy do kopca
     for (int i=n-1; i>=0; i--) 
     { 
-        // Move current root to end 
+        // przeniś aktualny korzń na koniec
         swap(arr[0], arr[i]); 
   
-        // call max heapify on the reduced heap 
         heapify(arr, i, 0); 
     } 
 }
